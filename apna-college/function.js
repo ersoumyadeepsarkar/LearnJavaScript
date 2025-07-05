@@ -87,8 +87,11 @@ const vow=(str)=> {
   return result.toString();
 }
 
+
 console.log(vow("say byyey eya wsyea sdas"));
 
+// For each function
+// The forEach() method executes a provided function once for each array element.
 function abc(){
   console.log("abc function called");
 }
@@ -149,6 +152,100 @@ console.log("function with args");
 number.forEach(checkByArgs);
 console.log("function with args2");
 number.forEach(checkByArgs2);
+
+let data = [1,2,3,4,5,6,7,8,9,10];
+
+data.forEach((x,idx)=>{
+  console.log("Value: " + x + ", Index: " + idx);
+  if (x % 2 === 0) {
+    console.log("Even number: " + x);
+  }             
+})
+
+
+
+console.log("-----------------------");
+let a= function (data){
+  console.log("This is a function passed as an argument");
+  data();
+  console.log("Function execution completed");
+  console.log("This is a function expression");
+}
+let b = () => {
+  console.log("This is an arrow function");
+  console.log("B is called");
+}
+a(b);
+console.log("-----------------------");
+
+console.log("Calling function a with function b as argument");
+
+let c= function  (data) {
+console.log("This is a function passed as an argument");
+data()  
+return data
+}
+let d =c(b)
+console.log("Function execution completed"+d);
+console.log("-----------------------");
+d();
+
+console.log(typeof d );
+
+let aS = function() {
+  // anonymous function
+};
+
+let bS = function bS() {
+  // inside here, you can use 'b' to refer to the function itself
+  // e.g., b(); for recursion
+};
+console.log("---------------------")
+// map function 
+let numbers = [1, 2, 3, 4, 5];
+console.log("Original array: " + numbers);
+// does not change the original array
+let doubled =number.map((x)=>{
+  return x * 2;
+});
+console.log("doubled array: " + doubled);
+number.map((x)=>{
+  return x * 2;
+}).forEach((y,idx)=>{
+  console.log("Value: " + y + ", Index: " + idx);
+});
+// filter
+let oddNumbers = numbers.filter((x) => {
+  return x % 2 !== 0;
+});
+
+console.log("Odd numbers: " + oddNumbers);
+
+let sumOfarray= numbers.reduce((prev,curr)=>{return prev + curr;},0);
+console.log("Sum of numbers: " + sumOfarray);
+// using reduce to find the smallest number 
+
+let randomNumbers = [5, 3, 8, 1, 2, 7, 4, 6];
+let copy=randomNumbers.slice(0);
+let len= randomNumbers.length;
+
+let bubbleSorterArray=[];
+for(let i=0;i<len;i++){  
+  console.log("Bubble sort iteration: " + (i + 1));
+bubbleSorterArray[i]=randomNumbers.reduce((PREV, CURR) => {
+  return (PREV<CURR?PREV:CURR);
+});  
+console.log("Current smallest number: " + bubbleSorterArray[i]);
+let idx =randomNumbers.indexOf(bubbleSorterArray[i])
+randomNumbers.splice(idx,1);
+}
+
+console.log("original array: " + copy);
+console.log("Bubble sorted array: " + bubbleSorterArray);
+
+// TEST 
+
+
 
 
 
