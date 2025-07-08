@@ -36,6 +36,18 @@ body {
   text-align: center;
   background-color: aquamarine;
 }
+
+
+
+.box2 {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  margin: 5px;
+  text-align: center;
+  background-color: #007bff;
+}
+
 #change {
     padding: 10px 20px;
     background-color: #007bff;
@@ -49,4 +61,14 @@ body {
 
 #change:hover {
     background-color: #0056b3;
+}
+
+
+.P10{
+  background-color: #0056b3;
+  color: aliceblue;
+  text-align: center;
+}
+.newClass{
+  color: white;
 }

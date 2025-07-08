@@ -31,7 +31,7 @@ console.log(document.body.childNodes[1].textContent);
 
 // Modify the visible text (innerText) of the second child in <body>
 // @ts-ignore
-document.body.childNodes[1].innerText = "New text content";
+//document.body.childNodes[1].innerText = "New text content";
 
 // Find the element with ID "output" and set its text content
 // @ts-ignore
@@ -106,11 +106,109 @@ document.getElementById("list").innerHTML = "<DIV>new div</DIV>";
 let text1 = document.getElementById("practice")?.innerText;
 let text2 = "From Apana college";
 document.getElementById("practice").innerText = text1 + " " + text2;
-
 let divObject = document.querySelectorAll(".box");
+
+// NodeList is an array-like object returned by methods like querySelectorAll.
+// Properties and methods of NodeList include:
+// - length: number of nodes in the list
+// - item(index): returns the node at the given index
+// - forEach(callback): executes a callback for each node (modern browsers)
+// - entries(), keys(), values(): iterators for looping (ES6+)
+// You can access nodes by index (divObject[0]), but NodeList does not have array methods like pop, push, etc.
 
 function change() {
   divObject.forEach((x, idx) => {
     x.innerText = "Box number " + idx;
+    x.setAttribute("class","box2")
   });
 }
+
+let divClassObj = divObject[0].getAttribute("class");
+console.log(divClassObj)
+
+let lastDiv=divObject[divObject.length-1]
+let firstDiv=divObject[0];
+
+lastDiv.style.background="pink";
+
+
+// creating new node , createElement(<tagname>)
+
+// CREATE (but not show in screen)
+let dyButton = document.createElement("button");
+dyButton.innerHTML = "click me";
+
+// Create an unordered list dynamically
+let ul = document.createElement("ul");
+for (let i = 1; i <= 3; i++) {
+  let li = document.createElement("li");
+  li.innerText = "Item " + i;
+  ul.appendChild(li);
+}
+
+let ul2 = document.createElement("ul");
+for (let i = 1; i <= 3; i++) {
+  let li = document.createElement("li");
+  li.innerText = "Item " + i;
+  ul2.appendChild(li);
+}
+
+let dyHeading=document.createElement("h1")
+dyHeading.innerHTML="<I>HELLO<I>"
+
+
+lastDiv.append(dyButton);
+
+// Use prepend if available, otherwise fallback to insertBefore for older browsers
+if (typeof lastDiv.prepend === "function") {
+  lastDiv.prepend(dyHeading);
+} else {
+  lastDiv.insertBefore(dyHeading, lastDiv.firstChild);
+}
+
+console.log(lastDiv)
+lastDiv.before(ul);
+console.log(lastDiv)
+lastDiv.after(ul2);
+let bodyObj=document.querySelector("body");
+let h1remove = document.createElement("h1");
+h1remove.innerText="REMOVE ME BY CLICKING BUTTON";
+bodyObj?.prepend(h1remove);
+
+
+let removeButtonOBj=document.createElement("button");
+removeButtonOBj.innerText="REMOVE";
+removeButtonOBj.style.backgroundColor="RED";
+removeButtonOBj.style.color ="white";
+removeButtonOBj.setAttribute("onClick","removeMe()");
+
+bodyObj?.prepend(removeButtonOBj);
+
+function removeMe(){
+  h1remove.remove();
+}
+let newbutton =document.createElement("button");
+newbutton.innerText="CLICK ME!"
+newbutton.style.backgroundColor="RED";
+newbutton.style.color ="white";
+
+
+bodyObj?.prepend(newbutton);
+
+let myPara=document.querySelector(".p10");
+console.dir(myPara)
+myPara?.classList.add("newClass");
+
+
+
+
+
+
+
+// PRACTICE 
+
+
+
+
+
+
