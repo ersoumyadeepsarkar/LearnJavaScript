@@ -1,0 +1,18 @@
+div {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    color: white;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.dark {
+    background-color: red;
+}
+
+
+.light {
+    background-color: white;
+}
+
