@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1> THE GAME </h1>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>tic tac toe</h1>
+    <br><br>
+    <button  onClick="reset(); turn.innerText='player #1(X)' " class="start ">New game </button>
+    <br><br>
+    <h2 id="player"><h2>   
 
-    <div class="div_container">
-        
-    <div class="inner">
+    <div class="container">
+      <div class="game">
         <button class="btn"></button>
         <button class="btn"></button>
         <button class="btn"></button>
@@ -21,10 +24,9 @@
         <button class="btn"></button>
         <button class="btn"></button>
         <button class="btn"></button>
+      </div>
     </div>
-<button class="reset">RESET</button>    
-</div>
-        
-    <script src="script.js"></script>   
-</body>
+    <button class="reset">RESET</button>
+    <script src="script.js"></script>
+  </body>
 </html>

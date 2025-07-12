@@ -1,58 +1,56 @@
-.div_container {
-    height: 70vh;
-    width: 70vh;
-    background-color: teal;
-    justify-content: center;
-    text-align: center;
-    align-content: center;
-    
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.inner {
-    height: 41vmin;
-    width: 41vmin;
-    background-color: aqua;
-    justify-content: center;
-    text-align: center;
-    align-content: center;
-  
+body {
+  background-color: teal;
+  text-align: center;
+}
 
+.container {
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  height: 60vmin;
+  width: 60vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vmin;
+ 
 }
 
 .btn {
-    height: 10vmin;
-    width: 10vmin;
-    border: 1px solid black;
-    background-color: aqua;
-    justify-content: center;
-    text-align: center;
-    align-content: center;
-    font-size: 5vmin;
-    
-    
-
+  height: 18vmin;
+  width: 18vmin;
+  border: none;
+  font-size: 5vmin;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgb(0,0,0,0.5);
 }
+
+.reset,.start {
+    padding: 1rem;
+    font-size: 1.25rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    text-align: center;
+    color: black;
+}
+
 .X {
     color: RED;
 }
 
 .O {
     color: blue;
-
-}
-
-
-
-.reset {
-    height: 5vmin;
-    width: 30vmin;
-    border: 1px solid black;
-    text-align: center;
-    color: black;
-    
-    
-    
-    
 
 }
 
