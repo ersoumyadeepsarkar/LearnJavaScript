@@ -26,7 +26,7 @@ let last_player = function display() {
 
 let reset = function () {
   console.log("reset is called");
-  for (let c of cubes) {D
+  for (let c of cubes) {
     c.innerText = "";
     c.classList.remove("O");
     c.classList.remove("X");
