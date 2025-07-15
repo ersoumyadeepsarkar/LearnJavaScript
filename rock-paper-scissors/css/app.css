@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: teal;
+  text-align: center;
+}
+.container {
+  margin: 1rem;
+  border: 1px solid black;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.game {
+  gap: 1rem;
+  margin: 1rem;
+  border: 1px solid black;
+  height: 50vmin;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.userGame {
+  gap: 1rem;
+  margin: 1rem;
+  border: 1px solid black;
+  height: 50vmin;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image {
+  max-width: 40%;
+  max-height: 40%;
+  object-fit: contain; /* or use 'cover' depending on effect */
+  border-radius: 50rem;
+}
+#play {
+  padding: 1rem;
+  font-size: 1.25rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  text-align: center;
+  color: black;
+}
+
+.highlighted {
+  border: 5px solid yellow;
+  box-shadow: 0 0 15px 5px yellow;
+  border-radius: 10px;
+}
+
+#title {
+  height: 60x;
+  border: 1px solid black;
+  text-align: center;
+  color: white;
+  background-color: blue;
+}
+
+#win_title {
+  height: 60x;
+  border: 1px solid black;
+  text-align: center;
+  color: white;
+  background-color: blue;
+}
+
