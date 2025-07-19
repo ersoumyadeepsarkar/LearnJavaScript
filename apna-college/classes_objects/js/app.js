@@ -109,21 +109,38 @@ nano.stop();
 nano.setBrand("TATA");
 console.log(nano.brand);
 
-class Parent{
+
+class MAN{
 constructor(){
-  this.money="100000000";// this will be inherit by the child
-  console.log("parent constructir called")
+  this.money="1";// this will be inherit by the child
+  console.log("MAN constructir called")
 }
 
 hello(){
-  console.log("Paremt class")
+  console.log("MAN class")
 }
 
 }
 
-class Child extends Parent{
+class GrandParent extends MAN{
+constructor(){
+  super();
+  this.money="100000000";// this will be inherit by the child
+  console.log("GrandParent constructir called")
+}
+
+hello(){
+  console.log("GrandParent class")
+}
+
+}
+
+class Child extends GrandParent{
   constructor(){
     super();
+      this.money="999999999999999999999";
+         this.honey="999999999999999999999";
+
       console.log("parent Child called")
   }
 hello(){
