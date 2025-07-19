@@ -802,4 +802,250 @@ try {
 }
 ```
 
+Absolutely, Soumyadeep! Here's your beautifully structured Markdown version — clean and easy to navigate:
+
+---
+
+# 🔁 JavaScript: Synchronous vs Asynchronous Execution
+
+## 🔄 Synchronous
+- Executes instructions one after another.
+- Each instruction waits for the previous one to complete.
+
+## 🔀 Asynchronous
+- Instructions can run in parallel.
+- Execution does not block waiting.
+
+---
+
+# ⏱️ `setTimeout()`
+
+- A JavaScript function that takes a **callback** and **delay time in milliseconds**.
+- Executes the callback after the specified delay.
+
+```js
+setTimeout(() => console.log("hi"), 2000);
+```
+
+---
+
+# 🔁 Callbacks
+
+- Functions (or arrow functions) passed as arguments to another function.
+- The **main function** executes the callback.
+
+### Example
+
+```js
+function sum(a, b) {
+  console.log(a + b);
+}
+
+function calculator(a, b, callback) {
+  callback(a, b);
+}
+
+calculator(2, 3, sum); // callback = sum
+calculator(2, 3, (a, b) => console.log(a * b)); // arrow function callback
+```
+
+---
+
+# ⚠️ Nested Callbacks: Callback Hell
+
+### ❌ Problem Example
+
+```js
+function getData(a) {
+  setTimeout(() => console.log(a), 2000);
+}
+
+getData(1);
+getData(2);
+getData(3); // All timers start at same time
+```
+
+### ✅ Solution: Nested Callback
+
+```js
+function getData(a, nextData) {
+  setTimeout(() => {
+    console.log(a);
+    if (nextData) {
+      nextData();
+    }
+  }, 2000);
+}
+
+getData(1, () => {
+  getData(2, () => {
+    getData(3);
+  });
+});
+```
+
+This creates a **pyramid of callbacks**, commonly called **Callback Hell**.
+
+---
+
+# 🧩 Promises
+
+- Handles eventual success or failure of async tasks.
+- Has 3 states: `Pending`, `Resolved`, `Rejected`.
+
+### 🔧 Manual Promise Creation
+
+```js
+let promiseReject = new Promise((resolve, reject) => {
+  console.log("I am a promise");
+  reject("ERROR occurred");
+});
+
+let promiseResolve = new Promise((resolve, reject) => {
+  console.log("I am a promise");
+  resolve("Transaction complete");
+});
+```
+
+---
+
+# ✅ Handling Promises
+
+### With `.then()` and `.catch()`
+
+```js
+let prom = new Promise((resolve, reject) => {
+  // resolve("data");
+  reject("network error");
+});
+
+prom.then((m) => alert("successful " + m));
+prom.catch((e) => alert("FAIL " + e));
+```
+
+---
+
+# 🔗 Promise Chaining
+
+```js
+function getDatax(dataId) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("datax======>", dataId);
+      resolve(dataId);
+    }, 2000);
+  });
+}
+
+getDatax(1).then((result) => {
+  console.log("Data: " + result);
+  return getDatax(result * 2);
+}).then((result) => {
+  console.log("Data: " + result);
+  return getDatax(result * 2);
+}).then((result) => {
+  console.log("Final result: " + result);
+});
+```
+
+---
+
+# 🌀 Async / Await
+
+- An `async` function always returns a promise.
+- `await` can only be used **inside async functions**.
+
+### 🔧 Example
+
+```js
+async function sayHello() {
+  console.log("say hello");
+  return "hi";
+}
+
+let h = sayHello();
+console.log(h);
+
+h.then((x) => console.log(x)).catch((e) => console.error(e));
+```
+
+### Using `await`:
+
+```js
+function getDataASAW(dataId) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("datax======>", dataId);
+      resolve(dataId);
+    }, 2000);
+  });
+}
+
+async function getAllData() {
+  try {
+    let p = await getDataASAW(1);
+    p = await getDataASAW(p * 2);
+    p = await getDataASAW(p * 2);
+
+    p = await getDataRej(p * 2); // This may throw
+  } catch (err) {
+    console.log("Error caught:", err);
+  }
+}
+
+getAllData();
+```
+
+---
+
+# 🧠 Main Thread in JavaScript
+
+- Single-threaded by design.
+- Handles: DOM updates, event handling, and function execution.
+
+### 🍳 Restaurant Analogy
+
+| Role           | Description                              |
+|----------------|-------------------------------------------|
+| Chef           | Main thread (executes one task at a time)|
+| Kitchen Assistant | Web APIs handle async requests          |
+| Order Ticket   | Callback queue                            |
+| Manager        | Event loop (manages execution flow)       |
+
+---
+
+# ⚙️ Event Loop Components
+
+| Component       | Role                                                |
+|----------------|-----------------------------------------------------|
+| Main Thread     | Runs JS code                                        |
+| Call Stack      | Tracks function calls                               |
+| Web APIs        | Handles async tasks like `fetch`, `setTimeout`      |
+| Callback Queue  | Queued functions after delay/event                  |
+| Event Loop      | Sends callbacks to call stack when empty            |
+
+---
+
+# 🚀 Priority Table
+
+| Feature         | Asynchronous? | Queue Type       | Priority |
+|----------------|----------------|------------------|----------|
+| `setTimeout`    | Yes            | Callback Queue    | Low      |
+| Event callbacks | Yes            | Callback Queue    | Low      |
+| `Promise.then`  | Yes            | Microtask Queue   | High     |
+| `async/await`   | Yes (Promise)  | Microtask Queue   | High     |
+
+---
+
+# 🧵 Java vs JavaScript Threading
+
+| Feature              | Java              | JavaScript           |
+|----------------------|-------------------|-----------------------|
+| Create threads       | ✅ Yes            | ❌ No (Web Workers only) |
+| Parallelism          | ✅ Yes            | ✅ Yes (via Web Workers) |
+| Shared memory        | ✅ Yes            | ❌ No                 |
+| Blocking allowed     | ✅ Yes            | ❌ No                 |
+| Best use case        | CPU-heavy tasks   | Offload heavy work    |
+
+---
 
