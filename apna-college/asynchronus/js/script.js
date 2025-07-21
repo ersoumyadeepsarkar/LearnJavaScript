@@ -162,7 +162,7 @@ asycnFunc().then((x) => {
   });
 });
 
-console.log("solving Callback hell by promise")
+console.log("solving Callback hell by promise nesting")
 function getDatax(dataId) {
   return new Promise((resolve,reject) => {
     setTimeout(() => {
@@ -182,6 +182,23 @@ getDatax(1).then((result) => {
 
   });
 });
+
+
+console.log("solving Callback hell by promise flat chain ")
+function getDatay(dataId) {
+  return new Promise((resolve,reject) => {
+    setTimeout(() => {
+      console.log("datax======>", dataId);
+      resolve(dataId);
+    }, 2000);
+  });
+}
+
+
+
+getDatay(1).then((result) => getDatay(result * 2)).then((result) => getDatay(result * 2));
+
+ 
 
 /**
  *
