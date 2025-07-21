@@ -45,7 +45,7 @@ function displayBreeds(breeds) {
     let dogInfo = document.createElement("div");
     dogInfo.classList.add("dog-box")
     dogInfo.innerHTML = `<p>${x.attributes.description}</p>`;
-    cont.appendChild(dogInfo);
+    cont?.appendChild(dogInfo);
     console.log(x.attributes.description);
   });
 }
